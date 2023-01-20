@@ -13,26 +13,24 @@ class Manager {
 
     void update() {
         if ((frameCount % this.interval) == 0) {
-            if(keyPressed && keyCode != DOWN){
-                this.active_shape.fallDown();
-            }else if(!keyPressed) {
-                this.active_shape.fallDown();
+            if(!this.active_shape.isDocked()){
+                if(keyPressed && keyCode != DOWN){
+                    this.active_shape.fallDown();
+                }else if(!keyPressed) {
+                    this.active_shape.fallDown();
+                }
             }
-
-            if(this.active_shape.isDocked()){
-                if (!keyPressed){
-                BLK_STORE.storeShape(this.active_shape.blocks);
-
+            else {
                 if (this.active_shape.y == BRD_Y){
                     this.gameOver = true;
                 }
-                else {
-                    this.newShape();
-                }                    
-                }
 
+                BLK_STORE.storeShape(this.active_shape.blocks);
+                this.newShape();
             }
         }
+
+        this.active_shape.draw();
 
         if (!this.gameOver){
             for(int ri=0; ri < BRD_ROWS; ++ri){
@@ -42,8 +40,6 @@ class Manager {
                     PLAYER.addScore();
                 }
             }
-
-            this.active_shape.draw();
         }
     }
 }
