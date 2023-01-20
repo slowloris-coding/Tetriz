@@ -10,6 +10,11 @@ int BRD_COLS = 15;
 
 float BLK_SIZE = 0.0;
 
+float NXT_X = 0.0;
+float NXT_Y = 0.0;
+float NXT_W = 0.0;
+float NXT_H = 0.0;
+
 GBoard BRD;
 BlockStore BLK_STORE;
 Manager MGR;

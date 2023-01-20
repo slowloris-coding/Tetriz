@@ -1,14 +1,35 @@
 class Manager {
     TShape active_shape;
+    TShape next_shape;
+
     int interval = 60;
     boolean gameOver = false;
 
     Manager(){
-        this.newShape();
+        NXT_W = (5 * BLK_SIZE);
+        NXT_H = (6 * BLK_SIZE);
+
+        NXT_X = ((BRD_X - NXT_W) - 20);
+        NXT_Y = BRD_Y;
+
+        this.active_shape = new TShape(round(random(0, 7)));
+        this.active_shape.setActive();
+        this.next_shape = new TShape(round(random(0, 7)));
     }
 
     void newShape() {
-        this.active_shape = new TShape(round(random(0, 7)));
+        this.active_shape = this.next_shape;
+        this.active_shape.setActive();
+        this.next_shape = new TShape(round(random(0, 7)));
+    }
+
+    void displayNext() {
+        fill(0);
+        stroke(255);
+        strokeWeight(4);
+        rect(NXT_X, NXT_Y, NXT_W, NXT_H);
+
+        this.next_shape.draw();
     }
 
     void update() {
@@ -30,6 +51,7 @@ class Manager {
             }
         }
 
+        this.displayNext();
         this.active_shape.draw();
 
         if (!this.gameOver){

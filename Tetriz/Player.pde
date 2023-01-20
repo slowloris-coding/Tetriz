@@ -19,7 +19,7 @@ class Player {
     void display() {
         fill(255);
         textSize(64);
-        text("SCORE: " + this.score, ((width / 100) * 3), ((height / 100) * 10));
-        text("LEVEL: " + this.level, ((width / 100) * 3), ((height / 100) * 10) + 64);
+        text(this.score + "   points", ((BRD_X + BRD_W) + ((width / 100) * 3)), (BRD_Y + 32));
+        text(this.level + "   level", ((BRD_X + BRD_W) + ((width / 100) * 3)), (BRD_Y + 96));
     }
 }

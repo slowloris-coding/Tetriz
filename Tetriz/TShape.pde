@@ -7,9 +7,6 @@ class TShape {
 
     TShape(int _t){
         this.t = constrain(_t, 0, 6);
-        this.x = BRD_X + (BLK_SIZE * (BRD_COLS / 2));
-        this.y = BRD_Y;
-
         shObj = TSHAPES_CFG.getJSONObject(this.t);
 
         this.f_clr = unhex(this.shObj.getJSONObject("color").getString("fill"));
@@ -19,8 +16,20 @@ class TShape {
         this.mx_h = this.shObj.getJSONObject("size").getInt("height");
         this.mx_w = this.shObj.getJSONObject("size").getInt("width");
 
+        this.x = (NXT_X + (NXT_W / 2)) - (this.w / 2);
+        this.y = (NXT_Y + (NXT_H / 2)) - (this.h / 2);
+
         for(int bi = 0; bi < this.shObj.getJSONArray("blocks").size(); ++bi){
             this.blocks.add(new TBlock(this.x, this.y, this.f_clr, this.s_clr, this.shObj.getJSONArray("blocks").getJSONArray(bi)));
+        }
+    }
+
+    void setActive(){
+        this.x = BRD_X + (BLK_SIZE * (BRD_COLS / 2));
+        this.y = BRD_Y;
+
+        for(int i = 0; i < this.blocks.size(); ++i){
+            this.blocks.get(i).setPxPy(this.x, this.y);
         }
     }
 
