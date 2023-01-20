@@ -18,16 +18,19 @@ class Manager {
             }else if(!keyPressed) {
                 this.active_shape.fallDown();
             }
-        }
 
-        if(this.active_shape.isDocked()){
-            BLK_STORE.storeShape(this.active_shape.blocks);
+            if(this.active_shape.isDocked()){
+                if (!keyPressed){
+                BLK_STORE.storeShape(this.active_shape.blocks);
 
-            if (this.active_shape.y == BRD_Y){
-                this.gameOver = true;
-            }
-            else {
-                this.newShape();
+                if (this.active_shape.y == BRD_Y){
+                    this.gameOver = true;
+                }
+                else {
+                    this.newShape();
+                }                    
+                }
+
             }
         }
 
@@ -42,6 +45,5 @@ class Manager {
 
             this.active_shape.draw();
         }
-
     }
 }
