@@ -1,7 +1,7 @@
 [
     {
         "color": {
-            "fill": "FFFF0000",
+            "fill": "16FF0000",
             "stroke": "FF880000"
         },
         "size": {
@@ -17,7 +17,7 @@
     },
     {
         "color": {
-            "fill": "FFA2FF00",
+            "fill": "16A2FF00",
             "stroke": "FF518800"
         },
         "size": {
@@ -33,7 +33,7 @@
     },
     {
         "color": {
-            "fill": "FF00E5FF",
+            "fill": "1600E5FF",
             "stroke": "FF003288"
         },
         "size": {
@@ -49,7 +49,7 @@
     },
     {
         "color": {
-            "fill": "FFFCD703",
+            "fill": "16FCD703",
             "stroke": "FF866301"
         },
         "size": {
@@ -65,7 +65,7 @@
     },
     {
         "color": {
-            "fill": "FF0800FF",
+            "fill": "160800FF",
             "stroke": "FF040088"
         },
         "size": {
@@ -81,7 +81,7 @@
     },
     {
         "color": {
-            "fill": "FFFF00CC",
+            "fill": "16FF00CC",
             "stroke": "FF880066"
         },
         "size": {
@@ -97,7 +97,7 @@
     },
     {
         "color": {
-            "fill": "FFFFA600",
+            "fill": "16FFA600",
             "stroke": "FF885300"
         },
         "size": {

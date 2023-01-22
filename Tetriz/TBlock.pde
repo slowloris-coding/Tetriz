@@ -69,9 +69,35 @@ class TBlock {
         return BLK_STORE.isDocked(this.row, this.col);
     }
 
+    void drawBlock(float x, float y, int _rgbHx) {
+        int p = 40;
+        float w = BLK_SIZE;
+        float h = BLK_SIZE;
+
+        color clr = _rgbHx;
+
+        noStroke();
+        colorMode(HSB, 360, 100, 100, 100);
+
+        for(int i = 1; i <= p; i++){
+            float tw = (w / p) * i;
+            float th = (h / p) * i;
+            float tx = x + ((w / 2) - (tw / 2));
+            float ty = y + ((h / 2) - (th / 2));
+
+            // fill(0, 90, 5, 100);
+            fill(clr);
+            noStroke();
+            rect(tx, ty, tw, th, 5, 5, 5, 5);
+        }
+
+        colorMode(RGB, 255);
+    }
+
     void draw(){
-        fill(this.f_clr);
-        stroke(this.s_clr);
-        rect(this.x, this.y, BLK_SIZE, BLK_SIZE);
+        //fill(this.f_clr);
+        //stroke(this.s_clr);
+        //rect(this.x, this.y, BLK_SIZE, BLK_SIZE);
+        this.drawBlock(this.x, this.y, this.f_clr);
     }
 }
